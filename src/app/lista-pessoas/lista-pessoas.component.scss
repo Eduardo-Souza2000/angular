@@ -1,0 +1,30 @@
+.tabela{
+    font-family: 'Franklin Gothic Medium';
+    border: 1px solid #000;
+    width: 500px;
+}
+
+.titulo-tabelas{
+    font-size: 20px;
+}
+
+.titulo-tabelas--enunciado{
+    font-size: 10px;
+}
+
+.corpo-tabela{
+    font-size: 16px;
+    border: #000 1px solid;
+}
+
+td{
+    border: #000 1px solid;
+    text-align: center;
+}
+
+.pessoas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

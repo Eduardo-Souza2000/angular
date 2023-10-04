@@ -1,0 +1,30 @@
+<table class="tabela">
+    <tr class="titulo-tabelas">
+        <th>Tabela Com idade Maior que 30</th>
+    </tr>
+    <tr class="titulo-tabelas--enunciado">
+        <td>Nome: </td>
+        <td>Idade: </td>
+    </tr>
+
+    <tr *ngFor="let pessoa of lista" class="corpo-tabela">
+        <td *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
+        <td *ngIf="pessoa.idade > 30">{{pessoa.idade}}</td>
+    </tr>
+</table>
+
+<table class="tabela" >
+    <tr class="titulo-tabelas">
+        <th>Tabela Completa</th>
+    </tr>
+    <tr class="titulo-tabelas--enunciado">
+        <td>Nome: </td>
+        <td>Idade: </td>
+    </tr>
+
+    <tr *ngFor="let pessoa of lista"  class="corpo-tabela">
+        <td >{{pessoa.nome}}</td>
+        <td >{{pessoa.idade}}</td>
+    </tr>
+
+</table>
