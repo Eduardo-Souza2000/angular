@@ -1,14 +1,17 @@
-<table class="tabela">
-    <tr class="titulo-tabelas">
-        <th>Carro</th>
-    </tr>
-    <tr class="titulo-tabelas--enunciado">
-        <td>Nome: </td>
-        <td>Ano: </td>
-    </tr>
-
-    <tr *ngFor="let carro of lista" class="corpo-tabela">
-        <td >{{carro.nome}}</td>
-        <td>{{carro.ano}}</td>
-    </tr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center align-middle" colspan="2">Carro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="font-weight-bold">Nome:</td>
+            <td class="font-weight-bold">Ano:</td>
+        </tr>
+        <tr *ngFor="let carro of lista">
+            <td>{{carro.nome}}</td>
+            <td>{{carro.ano}}</td>
+        </tr>
+    </tbody>
 </table>

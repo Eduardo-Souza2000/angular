@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
 import { LoginComponent } from './sistema/login/login.component';
 import { IndexComponent } from './index/index.component';
-import { CarroListComponent } from './app/carros/carro-list/carro-list.component';
 import { LivrosComponent } from './livros/livros.component';
 import { AdicionarComponent } from './lista-pessoas/adicionar/adicionar.component';
 import { AdicionarlivroComponent } from './livros/adicionarlivro/adicionarlivro.component';
@@ -11,6 +10,7 @@ import { AdicionarcarroComponent } from './carros/adicionarcarro/adicionarcarro.
 import { EditarComponent } from './lista-pessoas/editar/editar.component';
 import { EditarcarroComponent } from './carros/editarcarro/editarcarro.component';
 import { EditarlivroComponent } from './livros/editarlivro/editarlivro.component';
+import { CarrosComponent } from './carros/carros.component';
 
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:"pessoas/editar/:id", component: EditarComponent},
 
 
-  {path:"carro", component: CarroListComponent},
+  {path:"carro", component: CarrosComponent},
   {path:"carro/adicionar", component: AdicionarcarroComponent},
   {path:"carro/editar/:id", component: EditarcarroComponent},
 
