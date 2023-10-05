@@ -17,6 +17,7 @@ import { AdicionarlivroComponent } from './livros/adicionarlivro/adicionarlivro.
 import { EditarlivroComponent } from './livros/editarlivro/editarlivro.component';
 import { AdicionarcarroComponent } from './carros/adicionarcarro/adicionarcarro.component';
 import { EditarcarroComponent } from './carros/editarcarro/editarcarro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EditarcarroComponent } from './carros/editarcarro/editarcarro.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
