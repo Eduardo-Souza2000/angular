@@ -1,0 +1,30 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    margin-top: 15vh;
+    background-color: rgb(42, 51, 41);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 50vw;
+}
+
+.row {
+    margin-bottom: 25px;
+}
+
+.btn {
+    margin-right: 20px;
+}
+
+input{
+    width: 10vw;
+}

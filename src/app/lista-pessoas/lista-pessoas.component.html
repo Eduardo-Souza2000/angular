@@ -1,30 +1,36 @@
-<table class="tabela">
-    <tr class="titulo-tabelas">
-        <th>Tabela Com idade Maior que 30</th>
-    </tr>
-    <tr class="titulo-tabelas--enunciado">
-        <td>Nome: </td>
-        <td>Idade: </td>
-    </tr>
+<div class="ajuste">
+    <table class="table table-striped">
+        <thead class="text-center align-middle" colspan="2">
+            <th>Tabela Com idade Maior que 30</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="font-weight-bold">Nome: </td>
+                <td class="font-weight-bold">Idade: </td>
+            </tr>
 
-    <tr *ngFor="let pessoa of lista" class="corpo-tabela">
-        <td *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
-        <td *ngIf="pessoa.idade > 30">{{pessoa.idade}}</td>
-    </tr>
-</table>
+            <tr *ngFor="let pessoa of lista">
+                <td  *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
+                <td  *ngIf="pessoa.idade > 30">{{pessoa.idade}}</td>
+            </tr>
+        </tbody>
+    </table>
 
-<table class="tabela" >
-    <tr class="titulo-tabelas">
-        <th>Tabela Completa</th>
-    </tr>
-    <tr class="titulo-tabelas--enunciado">
-        <td>Nome: </td>
-        <td>Idade: </td>
-    </tr>
+    <table class="table table-striped" >
+        <thead class="text-center align-middle" colspan="2">
+            <th>Tabela Completa</th>
+        </thead>
+        <tbody>
+            <tr >
+                <td class="font-weight-bold">Nome: </td>
+                <td class="font-weight-bold">Idade: </td>
+            </tr>
 
-    <tr *ngFor="let pessoa of lista"  class="corpo-tabela">
-        <td >{{pessoa.nome}}</td>
-        <td >{{pessoa.idade}}</td>
-    </tr>
+            <tr *ngFor="let pessoa of lista">
+                <td>{{pessoa.nome}}</td>
+                <td>{{pessoa.idade}}</td>
+            </tr>
+        </tbody>
 
-</table>
+    </table>
+</div>

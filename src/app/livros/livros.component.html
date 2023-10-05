@@ -1,18 +1,20 @@
-<table class="table table-striped">
-    <thead>
-        <tr class="text-center align-middle" colspan="2">
-            <th>Livros</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="font-weight-bold">Titulo: </td>
-            <td class="font-weight-bold">Autor: </td>
-        </tr>
+<div class="ajuste">
+    <table class="table table-striped">
+        <thead>
+            <tr class="text-center align-middle" colspan="2">
+                <th>Livros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="font-weight-bold">Titulo: </td>
+                <td class="font-weight-bold">Autor: </td>
+            </tr>
 
-        <tr *ngFor="let livro of lista">
-            <td >{{livro.titulo}}</td>
-            <td>{{livro.autor}}</td>
-        </tr>
-    </tbody>
-</table>
+            <tr *ngFor="let livro of lista">
+                <td >{{livro.titulo}}</td>
+                <td>{{livro.autor}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

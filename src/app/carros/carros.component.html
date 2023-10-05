@@ -1,17 +1,19 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th class="text-center align-middle" colspan="2">Carro</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="font-weight-bold">Nome:</td>
-            <td class="font-weight-bold">Ano:</td>
-        </tr>
-        <tr *ngFor="let carro of lista">
-            <td>{{carro.nome}}</td>
-            <td>{{carro.ano}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="ajuste">
+    <table class="table table-striped">
+        <thead>
+            <tr class="text-center align-middle" colspan="2">
+                <th>Carro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="font-weight-bold">Nome:</td>
+                <td class="font-weight-bold">Ano:</td>
+            </tr>
+            <tr *ngFor="let carro of lista">
+                <td>{{carro.nome}}</td>
+                <td>{{carro.ano}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
