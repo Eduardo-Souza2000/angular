@@ -12,7 +12,6 @@ import { FooterComponent } from './footer/footer.component';
 import { CarrosComponent } from './carros/carros.component';
 import { LivrosComponent } from './livros/livros.component';
 import { AdicionarComponent } from './lista-pessoas/adicionar/adicionar.component';
-import { EditarComponent } from './lista-pessoas/editar/editar.component';
 import { AdicionarlivroComponent } from './livros/adicionarlivro/adicionarlivro.component';
 import { EditarlivroComponent } from './livros/editarlivro/editarlivro.component';
 import { AdicionarcarroComponent } from './carros/adicionarcarro/adicionarcarro.component';
@@ -32,7 +31,6 @@ import { FormsModule } from '@angular/forms';
     CarrosComponent,
     LivrosComponent,
     AdicionarComponent,
-    EditarComponent,
     AdicionarlivroComponent,
     EditarlivroComponent,
     AdicionarcarroComponent,

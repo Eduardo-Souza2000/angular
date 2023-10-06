@@ -1,7 +1,19 @@
-Digite o nome da pessoa: 
-<input type="text" [(ngModel)]="pessoa.nome"/>
+<div class="organizaMenu">
 
-Digite a idade da pessoa: 
-<input type="text" [(ngModel)]="pessoa.idade"/>
+    <table>
+        <tr>
+        <td>Digite o nome da pessoa:</td>
+        </tr>
+        <tr>
+            <td><input type="text" [(ngModel)]="pessoa.nome" /></td>
+        <tr>
+        <tr>
+            <td>Digite a idade da pessoa:</td>
+        </tr>
+        <tr>
+        <td><input type="text" [(ngModel)]="pessoa.idade" /></td>
+        </tr>
+    </table>
 
-<button (click)="salvarPessoa()">Salvar</button>
+    <button type="button" class="btn btn-primary btn-save" (click)="salvarPessoa()">Salvar</button>
+</div>

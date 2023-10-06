@@ -7,7 +7,6 @@ import { LivrosComponent } from './livros/livros.component';
 import { AdicionarComponent } from './lista-pessoas/adicionar/adicionar.component';
 import { AdicionarlivroComponent } from './livros/adicionarlivro/adicionarlivro.component';
 import { AdicionarcarroComponent } from './carros/adicionarcarro/adicionarcarro.component';
-import { EditarComponent } from './lista-pessoas/editar/editar.component';
 import { EditarcarroComponent } from './carros/editarcarro/editarcarro.component';
 import { EditarlivroComponent } from './livros/editarlivro/editarlivro.component';
 import { CarrosComponent } from './carros/carros.component';
@@ -19,7 +18,7 @@ const routes: Routes = [
 {path:"admin", component: IndexComponent, children: [
   {path:"pessoas", component: ListaPessoasComponent},
   {path:"pessoas/adicionar", component: AdicionarComponent},
-  {path:"pessoas/editar/:id", component: EditarComponent},
+
 
 
   {path:"carro", component: CarrosComponent},
