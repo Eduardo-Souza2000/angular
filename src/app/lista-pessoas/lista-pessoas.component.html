@@ -34,3 +34,21 @@
 
     </table>
 </div>
+
+<button (click)="abrirModal(open)" >Nova pessoa</button>
+
+<ng-template #open let-modal>
+
+    <div class="modal-header">
+		<h4 class="modal-title">ADICIONAR PESSOA</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Close click')"></button>
+	</div>
+	<div class="modal-body">
+		 <app-adicionar  (retorno)="addNaLista($event)" ></app-adicionar>     
+            
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+	</div>
+
+</ng-template>

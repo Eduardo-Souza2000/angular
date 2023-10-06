@@ -1,12 +1,7 @@
-<div class="container mt-4">
-    <h2>Adicionar Pessoa</h2>
-    <div class="mb-3">
-      <label for="nome" class="form-label">Nome da Pessoa:</label>
-      <input type="text" class="form-control" id="nome" placeholder="Inserir Nome">
-    </div>
-    <div class="mb-3">
-      <label for="ano" class="form-label">Idade da Pessoa:</label>
-      <input type="number" class="form-control" id="titulo" placeholder="Inserir Idade">
-    </div>
-    <button type="button" class="btn btn-primary">Adicionar</button>
-  </div>
+Digite o nome da pessoa: 
+<input type="text" [(ngModel)]="pessoa.nome"/>
+
+Digite a idade da pessoa: 
+<input type="text" [(ngModel)]="pessoa.idade"/>
+
+<button (click)="salvarPessoa()">Salvar</button>

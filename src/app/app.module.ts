@@ -18,6 +18,7 @@ import { EditarlivroComponent } from './livros/editarlivro/editarlivro.component
 import { AdicionarcarroComponent } from './carros/adicionarcarro/adicionarcarro.component';
 import { EditarcarroComponent } from './carros/editarcarro/editarcarro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
