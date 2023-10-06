@@ -11,3 +11,18 @@ table{
 th{
     font-size: 2vw;
 }
+
+.modal-body{
+    display: flex;
+    justify-content: center;
+
+}
+
+.custom-modal{
+    background-color: black;
+    color: white;
+}
+
+.btn-close{
+    background-color: white;
+}
