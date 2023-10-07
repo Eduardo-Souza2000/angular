@@ -68,6 +68,7 @@ export class ListaPessoasComponent {
   abrirModal(open: any){
     this.modalService.open(open, { size: 'lg' });
   }
+  
 
   addNaLista(pessoa: Pessoas){
     this.lista.push(pessoa);
