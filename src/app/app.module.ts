@@ -13,9 +13,7 @@ import { CarrosComponent } from './carros/carros.component';
 import { LivrosComponent } from './livros/livros.component';
 import { AdicionarComponent } from './lista-pessoas/adicionar/adicionar.component';
 import { AdicionarlivroComponent } from './livros/adicionarlivro/adicionarlivro.component';
-import { EditarlivroComponent } from './livros/editarlivro/editarlivro.component';
 import { AdicionarcarroComponent } from './carros/adicionarcarro/adicionarcarro.component';
-import { EditarcarroComponent } from './carros/editarcarro/editarcarro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
@@ -32,9 +30,7 @@ import { FormsModule } from '@angular/forms';
     LivrosComponent,
     AdicionarComponent,
     AdicionarlivroComponent,
-    EditarlivroComponent,
     AdicionarcarroComponent,
-    EditarcarroComponent
   ],
   imports: [
     BrowserModule,
