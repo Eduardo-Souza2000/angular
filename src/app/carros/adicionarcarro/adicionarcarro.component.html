@@ -1,20 +1,19 @@
 <div class="organizaMenu">
-
-  <table>
+    <table>
       <tr>
-      <td>Digite o nome do Carro:</td>
+        <td><label for="nomeCarro">Digite o nome do Carro:</label></td>
       </tr>
       <tr>
-          <td><input type="text" [(ngModel)]="carros.nome" /></td>
-      <tr>
-      <tr>
-          <td>Digite a Placa do Carro:</td>
+        <td><input type="text" [(ngModel)]="carros.nome" id="nomeCarro" name="nomeCarro" /></td>
       </tr>
       <tr>
-      <td><input type="text" [(ngModel)]="carros.ano" /></td>
+        <td><label for="placaCarro">Digite a Placa do Carro:</label></td>
       </tr>
-  </table>
-
-  <button type="button" class="btn btn-primary btn-save" (click)="salvarCarro()">Salvar</button>
-
-</div>
+      <tr>
+        <td><input type="text" [(ngModel)]="carros.ano" id="placaCarro" name="placaCarro" /></td>
+      </tr>
+    </table>
+  
+    <button type="button" class="btn btn-primary btn-save" (click)="salvarCarro()">Salvar</button>
+  </div>
+  

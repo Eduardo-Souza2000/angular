@@ -1,19 +1,18 @@
 <div class="organizaMenu">
-
-  <table>
+    <table>
       <tr>
-      <td>Digite o Titulo do Livro</td>
+        <td><label for="titulo">Digite o Título do Livro</label></td>
       </tr>
       <tr>
-          <td><input type="text" [(ngModel)]="Livro.titulo" /></td>
-      <tr>
-      <tr>
-          <td>Digite o nome do Autor:</td>
+        <td><input type="text" [(ngModel)]="Livro.titulo" id="titulo" name="titulo" /></td>
       </tr>
       <tr>
-      <td><input type="text" [(ngModel)]="Livro.autor" /></td>
+        <td><label for="autor">Digite o Nome do Autor:</label></td>
       </tr>
-  </table>
-
-  <button type="button" class="btn btn-primary btn-save" (click)="salvarLivro()">Salvar</button>
-</div>
+      <tr>
+        <td><input type="text" [(ngModel)]="Livro.autor" id="autor" name="autor" /></td>
+      </tr>
+    </table>
+  
+    <button type="button" class="btn btn-primary btn-save" (click)="salvarLivro()">Salvar</button>
+  </div>

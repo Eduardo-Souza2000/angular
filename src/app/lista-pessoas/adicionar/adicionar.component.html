@@ -1,19 +1,19 @@
 <div class="organizaMenu">
-
     <table>
-        <tr>
-        <td>Digite o nome da pessoa:</td>
-        </tr>
-        <tr>
-            <td><input type="text" [(ngModel)]="pessoa.nome" /></td>
-        <tr>
-        <tr>
-            <td>Digite a idade da pessoa:</td>
-        </tr>
-        <tr>
-        <td><input type="text" [(ngModel)]="pessoa.idade" /></td>
-        </tr>
+      <tr>
+        <td><label for="nomePessoa">Digite o nome da pessoa:</label></td>
+      </tr>
+      <tr>
+        <td><input type="text" [(ngModel)]="pessoa.nome" id="nomePessoa" name="nomePessoa" /></td>
+      </tr>
+      <tr>
+        <td><label for="idadePessoa">Digite a idade da pessoa:</label></td>
+      </tr>
+      <tr>
+        <td><input type="text" [(ngModel)]="pessoa.idade" id="idadePessoa" name="idadePessoa" /></td>
+      </tr>
     </table>
-
+  
     <button type="button" class="btn btn-primary btn-save" (click)="salvarPessoa()">Salvar</button>
-</div>
+  </div>
+  
