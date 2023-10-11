@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Pessoas } from './pessoas';
+import { Pessoas } from 'src/app/models/pessoas';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PessoasService } from 'src/app/service/pessoas.service';
+
 
 @Component({
   selector: 'app-lista-pessoas',
@@ -10,8 +12,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ListaPessoasComponent {
   lista: Pessoas[] = [];
 
+  pessoaSelecionadaParaEdicao: Pessoas = new Pessoas();
+  indiceSelecionadoParaEdicao!: number;
   modalService = inject(NgbModal);
+  pessoaService = inject(PessoasService);
 
+/*
   constructor(){
     let pessoa1: Pessoas = new Pessoas();
     pessoa1.nome = "Eduardo";
@@ -64,6 +70,14 @@ export class ListaPessoasComponent {
     this.lista.push(pessoa10);
 
   }
+*/
+
+  constructor() {
+
+    this.listAll();
+    //this.exemploErro();
+
+  }
 
   abrirModal(open: any){
     this.modalService.open(open, { size: 'lg' });
@@ -75,4 +89,66 @@ export class ListaPessoasComponent {
     this.modalService.dismissAll();
   }
 
+
+
+
+  listAll() {
+
+    this.pessoaService.listAll().subscribe({
+      next: lista => { // QUANDO DÁ CERTO
+        this.lista = lista;
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+  }
+
+  exemploErro() {
+
+    this.pessoaService.exemploErro().subscribe({
+      next: lista => { // QUANDO DÁ CERTO
+        this.lista = lista;
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+  }
+
+
+  adicionar(modal: any) {
+    this.pessoaSelecionadaParaEdicao = new Pessoas();
+
+    this.modalService.open(modal, { size: 'sm' });
+  }
+
+  editar(modal: any, pessoas: Pessoas, indice: number) {
+    this.pessoaSelecionadaParaEdicao = Object.assign({}, pessoas); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
+    this.indiceSelecionadoParaEdicao = indice;
+
+    this.modalService.open(modal, { size: 'sm' });
+  }
+
+  addOuEditarPessoa(pessoas: Pessoas) {
+
+    this.listAll();
+
+    /*
+
+    if (this.pessoaSelecionadaParaEdicao.id > 0) { //MODO EDITAR
+      this.lista[this.indiceSelecionadoParaEdicao] = pessoa;
+    } else {
+      pessoa.id = 99;
+      this.lista.push(pessoa);
+    }
+    */
+
+    this.modalService.dismissAll();
+
+  }
 }

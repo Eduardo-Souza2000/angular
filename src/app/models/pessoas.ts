@@ -1,6 +1,4 @@
-export class Pessoas{
+export class Pessoas {
     nome!: String;
     idade!: number;
-
-    
 }

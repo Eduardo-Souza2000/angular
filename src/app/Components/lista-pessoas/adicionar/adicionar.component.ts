@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pessoas } from '../pessoas';
+import { Pessoas } from 'src/app/models/pessoas';
 import { NgIf } from '@angular/common';
 import { isString } from '@ng-bootstrap/ng-bootstrap/util/util';
+import { PessoasService } from 'src/app/service/pessoas.service';
+
 
 @Component({
   selector: 'app-adicionar',
@@ -12,10 +14,14 @@ import { isString } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 export class AdicionarComponent {
 
+  @Input() pessoa: Pessoas = new Pessoas();
   roteador = inject(ActivatedRoute);
-  pessoa: Pessoas = new Pessoas();
+  pessoas: Pessoas = new Pessoas();
 
   @Output() retorno = new EventEmitter<Pessoas>();
+
+  pessoaService = inject(PessoasService);
+
 
   constructor(){
     let id = this.roteador.snapshot.paramMap.get('id');
@@ -42,4 +48,20 @@ export class AdicionarComponent {
     }
   }
 
+  salvar() {
+    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
+
+    this.pessoaService.save(this.pessoa).subscribe({
+      next: pessoa => { // QUANDO DÁ CERTO
+        this.retorno.emit(pessoa);
+      },
+      error: erro => { // QUANDO DÁ ERRO
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+
+
+
+  }
 }
