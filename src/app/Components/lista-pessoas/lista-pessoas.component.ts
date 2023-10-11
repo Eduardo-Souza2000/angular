@@ -16,6 +16,9 @@ export class ListaPessoasComponent {
   indiceSelecionadoParaEdicao!: number;
   modalService = inject(NgbModal);
   pessoaService = inject(PessoasService);
+  pessoaSelecionada: Pessoas = new Pessoas();
+  idSelecao!: number;
+  modal: any;
 
 /*
   constructor(){
@@ -78,6 +81,13 @@ export class ListaPessoasComponent {
 
   }
 
+  editar(modal: any, pessoa: Pessoas, indice: number) {
+    this.pessoaSelecionada = Object.assign({}, pessoa); 
+    this.idSelecao = indice;
+
+    this.modalService.open(modal, { size: 'sm' });
+  }
+
   abrirModal(open: any){
     this.modalService.open(open, { size: 'lg' });
   }
@@ -138,12 +148,6 @@ export class ListaPessoasComponent {
     this.modalService.open(modal, { size: 'sm' });
   }
 
-  editar(modal: any, pessoas: Pessoas, indice: number) {
-    this.pessoaSelecionadaParaEdicao = Object.assign({}, pessoas); //clonando o objeto se for edição... pra não mexer diretamente na referência da lista
-    this.indiceSelecionadoParaEdicao = indice;
-
-    this.modalService.open(modal, { size: 'sm' });
-  }
 
   addOuEditarPessoa(pessoas: Pessoas) {
 

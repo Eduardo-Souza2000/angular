@@ -29,6 +29,8 @@ export class AdicionarComponent {
   pessoaService = inject(PessoasService);
 
 
+
+
   constructor(){
    /* let id = this.roteador.snapshot.paramMap.get('id');
     console.log(id);*/
@@ -62,6 +64,8 @@ export class AdicionarComponent {
     }
   }
 
+
+ 
  
 
 
