@@ -81,11 +81,10 @@ export class ListaPessoasComponent {
 
   }
 
-  editar(modal: any, pessoa: Pessoas, indice: number) {
+  editar(open: any, pessoa: Pessoas, indice: number) {
     this.pessoaSelecionada = Object.assign({}, pessoa); 
     this.idSelecao = indice;
-
-    this.modalService.open(modal, { size: 'sm' });
+    this.modalService.open(open, { size: 'lg' });
   }
 
   abrirModal(open: any){
