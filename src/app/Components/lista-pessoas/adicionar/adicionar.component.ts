@@ -13,7 +13,7 @@ import { PessoasService } from 'src/app/service/pessoas.service';
 })
 
 export class AdicionarComponent {
-
+/*
   @Input() pessoa: Pessoas = new Pessoas();
   roteador = inject(ActivatedRoute);
   pessoas: Pessoas = new Pessoas();
@@ -21,11 +21,17 @@ export class AdicionarComponent {
   @Output() retorno = new EventEmitter<Pessoas>();
 
   pessoaService = inject(PessoasService);
+*/
+
+  @Input() pessoa: Pessoas = new Pessoas();
+  @Output() retorno = new EventEmitter<Pessoas>();
+
+  pessoaService = inject(PessoasService);
 
 
   constructor(){
-    let id = this.roteador.snapshot.paramMap.get('id');
-    console.log(id);
+   /* let id = this.roteador.snapshot.paramMap.get('id');
+    console.log(id);*/
   }
 
 
@@ -44,24 +50,19 @@ export class AdicionarComponent {
       alert("Aceito somente Letras no nome")
       return;
     }else{
-      this.retorno.emit(this.pessoa);
+      this.pessoaService.save(this.pessoa).subscribe({
+        next: pessoa => { 
+          this.retorno.emit(pessoa);
+        },
+        error: erro => { 
+          alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+          console.error(erro);
+        }
+      });
     }
   }
 
-  salvar() {
-    //ISSO AQUI SERVE PARA EDITAR OU ADICIONAR... TANTO FAZ
-
-    this.pessoaService.save(this.pessoa).subscribe({
-      next: pessoa => { // QUANDO DÁ CERTO
-        this.retorno.emit(pessoa);
-      },
-      error: erro => { // QUANDO DÁ ERRO
-        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-        console.error(erro);
-      }
-    });
+ 
 
 
-
-  }
 }

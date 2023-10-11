@@ -1,24 +1,31 @@
 <div class="ajuste">
+    <button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button>
     <table class="table table-dark">
         <thead >
             <tr class="text-center align-middle">
-                <th colspan="2">Tabela Com idade Maior que 30</th>
+                <th colspan="4">Tabela Com idade Maior que 30</th>
             </tr>
              
         </thead>
         <tbody>
             <tr>
+                <td class="font-weight-bold">Id: </td>
                 <td class="font-weight-bold">Nome: </td>
                 <td class="font-weight-bold">Idade: </td>
+                <td class="font-weight-bold">Editar: </td>
             </tr>
 
-            <tr *ngFor="let pessoa of lista">
-                <td  *ngIf="pessoa.idade > 30">{{pessoa.nome}}</td>
-                <td  *ngIf="pessoa.idade > 30">{{pessoa.idade}}</td>
+            <tr *ngFor="let pessoa of lista;let i = index">
+                <th scope="row">{{ pessoa.id }}</th>
+                <td >{{pessoa.nome}}</td>
+                <td >{{pessoa.idade}}</td>
+               <!-- <td> <button class="btn btn-primary" (click)="editar(modal1, pessoa, i)">Editar</button> </td>-->
+                <td><button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button></td>
+
             </tr>
         </tbody>
     </table>
-
+<!--
     <table class="table table-dark" >
         <thead >
             <tr class="text-center align-middle">
@@ -41,7 +48,7 @@
     </table>
 
     <button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button>
-
+-->
 </div>
 
 

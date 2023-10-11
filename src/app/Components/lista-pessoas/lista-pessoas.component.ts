@@ -75,7 +75,6 @@ export class ListaPessoasComponent {
   constructor() {
 
     this.listAll();
-    //this.exemploErro();
 
   }
 
@@ -83,12 +82,24 @@ export class ListaPessoasComponent {
     this.modalService.open(open, { size: 'lg' });
   }
   
-
+  
   addNaLista(pessoa: Pessoas){
-    this.lista.push(pessoa);
-    this.modalService.dismissAll();
-  }
+    this.listAll();
 
+    /*
+
+    if (this.pessoaSelecionadaParaEdicao.id > 0) { //MODO EDITAR
+      this.lista[this.indiceSelecionadoParaEdicao] = pessoa;
+    } else {
+      pessoa.id = 99;
+      this.lista.push(pessoa);
+    }
+    */
+
+    this.modalService.dismissAll();
+
+  }
+  
 
 
 
