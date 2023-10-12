@@ -1,57 +1,42 @@
 <div class="ajuste">
-    <button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button>
+    <button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)">Adicionar pessoa</button>
     <table class="table table-dark">
-        <thead >
+        <thead>
             <tr class="text-center align-middle">
                 <th colspan="4">Tabela Com idade Maior que 30</th>
             </tr>
-             
         </thead>
         <tbody>
             <tr>
                 <td class="font-weight-bold">Id: </td>
                 <td class="font-weight-bold">Nome: </td>
                 <td class="font-weight-bold">Idade: </td>
-                <td class="font-weight-bold">Editar: </td>
+                <td class="font-weight-bold">Ações: </td>
             </tr>
 
-            <tr *ngFor="let pessoa of lista;let i = index">
+            <tr *ngFor="let pessoa of lista; let i = index">
                 <th scope="row">{{ pessoa.id }}</th>
-                <td >{{pessoa.nome}}</td>
-                <td >{{pessoa.idade}}</td>
-                <td> <button class="btn btn-primary" (click)="editar(open,pessoa, i)">Editar</button> </td>
-                <button class="btn btn-danger" (click)="delete(pessoa.id)">Delete</button>
-
-                <!--  <td><button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button></td>-->
-
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.idade }}</td>
+                <td>
+                    <button class="btn btn-primary btn-lg" (click)="editar(open, pessoa, i)" title="Editar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M0 12.293l2.293-2.293 7-7a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-7 7a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 0-1.414z"/>
+                            <path fill-rule="evenodd" d="M12.293 0a2 2 0 0 1 1.414 1.414l2 2a2 2 0 0 1 0 2.828l-7 7a2 2 0 0 1-2.828 0l-2-2a2 2 0 0 1-1.414-1.414L12.293 0zm1.414 1.414L1.414 13.707 0 14l.293-.293 11-11L13 0l-.293.293z"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="btn btn-danger btn-lg" (click)="delete(pessoa.id)" title="Excluir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M4 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1h3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h1V1zM2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1V4H2v0z"/>
+                        </svg>
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
-<!--
-    <table class="table table-dark" >
-        <thead >
-            <tr class="text-center align-middle">
-                <th colspan="2">Tabela de Pessoas Completa</th>
-            </tr>
-             
-        </thead>
-        <tbody>
-            <tr >
-                <td class="font-weight-bold">Nome: </td>
-                <td class="font-weight-bold">Idade: </td>
-            </tr>
-
-            <tr *ngFor="let pessoa of lista">
-                <td>{{pessoa.nome}}</td>
-                <td>{{pessoa.idade}}</td>
-            </tr>
-        </tbody>
-
-    </table>
-
-    <button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button>
--->
 </div>
+
 
 
 
