@@ -173,7 +173,7 @@ export class ListaPessoasComponent {
     this.modalService.dismissAll();
 
   }
-*/
+*//*
 addOuEditarPessoa(pessoa: Pessoas) {
   if (this.isEditing) {
     this.pessoaService.edit(pessoa).subscribe({
@@ -200,7 +200,7 @@ addOuEditarPessoa(pessoa: Pessoas) {
   }
 }
 
-
+*/
 
 delete(id: number) {
   this.pessoaService.delete(id).subscribe({

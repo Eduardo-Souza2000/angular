@@ -4,6 +4,7 @@ import { Pessoas } from 'src/app/models/pessoas';
 import { NgIf } from '@angular/common';
 import { isString } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { PessoasService } from 'src/app/service/pessoas.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -28,7 +29,13 @@ export class AdicionarComponent {
   @Output() retorno = new EventEmitter<Pessoas>();
 
   pessoaService = inject(PessoasService);
-
+  lista: Pessoas[] = [];
+  pessoaSelecionadaParaEdicao: Pessoas = new Pessoas();
+  indiceSelecionadoParaEdicao!: number;
+  modalService = inject(NgbModal);
+  pessoaSelecionada: Pessoas = new Pessoas();
+  idSelecao!: number;
+  modal: any;
 
 
 
@@ -53,15 +60,30 @@ export class AdicionarComponent {
       alert("Aceito somente Letras no nome")
       return;
     }else{
-      this.pessoaService.save(this.pessoa).subscribe({
-        next: pessoa => { 
-          this.retorno.emit(pessoa);
-        },
-        error: erro => { 
-          alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
-          console.error(erro);
-        }
-      });
+      if (this.isEditing) {
+        
+        this.pessoaService.edit(this.pessoa).subscribe({
+          next: updatedPessoa => {
+            this.lista[this.indiceSelecionadoParaEdicao] = updatedPessoa;
+            this.modalService.dismissAll();
+          },
+          error: erro => {
+            alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+            console.error(erro);
+          }
+        });
+      } else {
+        this.pessoaService.save(this.pessoa).subscribe({
+          next: novaPessoa => {
+            this.lista.push(novaPessoa);
+            this.modalService.dismissAll();
+          },
+          error: erro => {
+            alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+            console.error(erro);
+          }
+        });
+      }
     }
   }
 
