@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { Pessoas } from 'src/app/models/pessoas';
+import { Pessoas } from 'src/app/models/modelsPessoas/pessoas';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PessoasService } from 'src/app/service/pessoas.service';
+import { PessoasService } from 'src/app/service/servicePessoa/pessoas.service';
 
 
 @Component({
@@ -76,9 +76,7 @@ export class ListaPessoasComponent {
 */
 
   constructor() {
-
     this.listAll();
-
   }
 
   

@@ -4,16 +4,17 @@
         <td><label for="nomeCarro">Digite o nome do Carro:</label></td>
       </tr>
       <tr>
-        <td><input type="text" [(ngModel)]="carros.nome" id="nomeCarro" name="nomeCarro" /></td>
+        <td><input type="text" [(ngModel)]="carro.nome" id="nomeCarro" name="nomeCarro" /></td>
       </tr>
       <tr>
         <td><label for="placaCarro">Digite a Placa do Carro:</label></td>
       </tr>
       <tr>
-        <td><input type="text" [(ngModel)]="carros.ano" id="placaCarro" name="placaCarro" /></td>
+        <td><input type="text" [(ngModel)]="carro.ano" id="placaCarro" name="placaCarro" /></td>
       </tr>
     </table>
   
-    <button type="button" class="btn btn-primary btn-save" (click)="salvarCarro()">Salvar</button>
-  </div>
+    <button type="button" class="btn btn-primary btn-save" (click)="salvarCarro()">
+      {{ isEditing ? 'Editar' : 'Adicionar' }}
+    </button>  </div>
   

@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Pessoas } from 'src/app/models/pessoas';
+import { Pessoas } from 'src/app/models/modelsPessoas/pessoas';
 import { NgIf } from '@angular/common';
 import { isString } from '@ng-bootstrap/ng-bootstrap/util/util';
-import { PessoasService } from 'src/app/service/pessoas.service';
+import { PessoasService } from 'src/app/service/servicePessoa/pessoas.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
