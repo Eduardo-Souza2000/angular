@@ -26,11 +26,11 @@ export class AdicionarComponent {
 
   @Input() pessoa: Pessoas = new Pessoas();
   @Input() isEditing: boolean = false;
+  @Input() pessoaSelecionadaParaEdicao : Pessoas = new Pessoas;
   @Output() retorno = new EventEmitter<Pessoas>();
 
   pessoaService = inject(PessoasService);
   lista: Pessoas[] = [];
-  pessoaSelecionadaParaEdicao: Pessoas = new Pessoas();
   indiceSelecionadoParaEdicao!: number;
   modalService = inject(NgbModal);
   pessoaSelecionada: Pessoas = new Pessoas();
