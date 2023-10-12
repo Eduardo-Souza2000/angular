@@ -20,6 +20,8 @@
                 <td >{{pessoa.nome}}</td>
                 <td >{{pessoa.idade}}</td>
                 <td> <button class="btn btn-primary" (click)="editar(open,pessoa, i)">Editar</button> </td>
+                <button class="btn btn-danger" (click)="delete(pessoa.id)">Delete</button>
+
                 <!--  <td><button class="btn btn-lg btn-outline-primary" (click)="abrirModal(open)" >Adicionar pessoa</button></td>-->
 
             </tr>
@@ -56,11 +58,11 @@
 <ng-template #open let-modal>
     <div class="custom-modal">
         <div class="modal-header">
-            <h4 class="modal-title">ADICIONAR PESSOA</h4>
+            <h4 class="modal-title">{{ isEditing ? 'EDITAR PESSOA' : 'ADICIONAR PESSOA' }}</h4>            
             <button type="button" class="btn-close" aria-label="Close" (click)="modal.close('Close click')"></button>
         </div>
         <div class="modal-body">
-            <app-adicionar  (retorno)="addNaLista($event)" ></app-adicionar>     
+            <app-adicionar (retorno)="addOuEditarPessoa($event)" [isEditing]="isEditing"></app-adicionar>
                 
         </div>
        

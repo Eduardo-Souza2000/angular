@@ -14,6 +14,8 @@
       </tr>
     </table>
   
-    <button type="button" class="btn btn-primary btn-save" (click)="salvarPessoa()">Salvar</button>
-</div>
+    <button type="button" class="btn btn-primary btn-save" (click)="salvarPessoa()">
+      {{ isEditing ? 'Editar' : 'Adicionar' }}
+    </button>
+  </div>
   

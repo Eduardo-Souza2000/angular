@@ -11,7 +11,7 @@ import { PessoasService } from 'src/app/service/pessoas.service';
 })
 export class ListaPessoasComponent {
   lista: Pessoas[] = [];
-
+  isEditing: boolean = false;
   pessoaSelecionadaParaEdicao: Pessoas = new Pessoas();
   indiceSelecionadoParaEdicao!: number;
   modalService = inject(NgbModal);
@@ -81,20 +81,29 @@ export class ListaPessoasComponent {
 
   }
 
-  editar(open: any, pessoa: Pessoas, indice: number) {
-    this.pessoaSelecionada = Object.assign({}, pessoa); 
-    this.idSelecao = indice;
-    this.modalService.open(open, { size: 'lg' });
-  }
-
+  
+/*
   abrirModal(open: any){
     this.modalService.open(open, { size: 'lg' });
-  }
+  }*/
   
+  abrirModal(open: any, pessoa?: Pessoas) {
+    if (pessoa) {
+      this.pessoaSelecionadaParaEdicao = Object.assign({}, pessoa);
+      this.isEditing = true; 
+    } else {
+      this.pessoaSelecionadaParaEdicao = new Pessoas();
+      this.isEditing = false; 
+    }
+  
+    this.modalService.open(open, { size: 'lg' }).result.then((result) => {
+      if (result === 'save') {
+      }
+    });
+  }
   
   addNaLista(pessoa: Pessoas){
     this.listAll();
-
     /*
 
     if (this.pessoaSelecionadaParaEdicao.id > 0) { //MODO EDITAR
@@ -104,14 +113,9 @@ export class ListaPessoasComponent {
       this.lista.push(pessoa);
     }
     */
-
     this.modalService.dismissAll();
-
   }
   
-
-
-
   listAll() {
 
     this.pessoaService.listAll().subscribe({
@@ -143,26 +147,72 @@ export class ListaPessoasComponent {
 
   adicionar(modal: any) {
     this.pessoaSelecionadaParaEdicao = new Pessoas();
-
     this.modalService.open(modal, { size: 'sm' });
   }
 
-
+  editar(open: any, pessoa: Pessoas, indice: number) {
+    console.log('Valor de i:', indice +1);
+    this.pessoaSelecionadaParaEdicao = Object.assign({}, pessoa);
+    this.indiceSelecionadoParaEdicao = indice + 1;
+    this.isEditing = true; 
+    this.modalService.open(open, { size: 'lg' });
+  }
+/*
   addOuEditarPessoa(pessoas: Pessoas) {
 
     this.listAll();
 
-    /*
-
-    if (this.pessoaSelecionadaParaEdicao.id > 0) { //MODO EDITAR
-      this.lista[this.indiceSelecionadoParaEdicao] = pessoa;
+    if (this.pessoaSelecionadaParaEdicao.id > 0) {
+      this.lista[this.indiceSelecionadoParaEdicao] = pessoas;
     } else {
-      pessoa.id = 99;
-      this.lista.push(pessoa);
+      pessoas.id = this.indiceSelecionadoParaEdicao;
+      this.lista.push(pessoas);
     }
-    */
+  
 
     this.modalService.dismissAll();
 
   }
+*/
+addOuEditarPessoa(pessoa: Pessoas) {
+  if (this.isEditing) {
+    this.pessoaService.edit(pessoa).subscribe({
+      next: updatedPessoa => {
+        this.lista[this.indiceSelecionadoParaEdicao] = updatedPessoa;
+        this.modalService.dismissAll();
+      },
+      error: erro => {
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+  } else {
+    this.pessoaService.save(pessoa).subscribe({
+      next: novaPessoa => {
+        this.lista.push(novaPessoa);
+        this.modalService.dismissAll();
+      },
+      error: erro => {
+        alert('Exemplo de tratamento de erro/exception! Observe o erro no console!');
+        console.error(erro);
+      }
+    });
+  }
 }
+
+
+
+delete(id: number) {
+  this.pessoaService.delete(id).subscribe({
+    next: () => {
+      this.listAll(); 
+    },
+    error: erro => {
+      console.error(erro);
+    }
+  });
+}
+}
+
+
+

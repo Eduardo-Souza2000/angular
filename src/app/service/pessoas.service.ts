@@ -20,11 +20,26 @@ export class PessoasService {
     return this.http.post<Pessoas>(this.API, pessoa);
   }
 
+  edit(pessoa: Pessoas): Observable<Pessoas> {
+
+    const url = `${this.API}/atualizar/${pessoa.id}`;
+    return this.http.put<Pessoas>(url, pessoa);
+  }
+
+  delete(id: number): Observable<any> {
+    const url = `${this.API}/deletar/${id}`;
+    return this.http.delete(url);
+  }
+
   exemploErro(): Observable<Pessoas[]> {
     return this.http.get<Pessoas[]>(this.API + '/erro');
   }
 
-   /*
+   
+  
+    
+      
+/*
   CASO PRECISE ENVIAR REQUEST PARAMS, BASTA DECLARAR ASSIM E INCLUIR NA REQUISIÇÃO HTTP
 
   let params = new HttpParams()
@@ -32,7 +47,6 @@ export class PessoasService {
 
   return this.http.get<Pessoa[]>(this.API, { params: params});
 
-  
   
   SE PRECISAR COLOCAR COISAS NO HEADER DA REQUISIÇÃO
 
@@ -46,4 +60,6 @@ export class PessoasService {
 
 
   */
+
+
 }

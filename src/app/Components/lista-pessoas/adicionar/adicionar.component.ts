@@ -24,6 +24,7 @@ export class AdicionarComponent {
 */
 
   @Input() pessoa: Pessoas = new Pessoas();
+  @Input() isEditing: boolean = false;
   @Output() retorno = new EventEmitter<Pessoas>();
 
   pessoaService = inject(PessoasService);
