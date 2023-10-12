@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Carro } from 'src/app/models/modelsCarro/carro';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarrosService } from 'src/app/service/serviceCarro/carros.service';
@@ -9,8 +9,7 @@ import { CarrosService } from 'src/app/service/serviceCarro/carros.service';
   styleUrls: ['./carros.component.scss']
 })
 export class CarrosComponent {
-  @Input() carro: Carro = new Carro(); 
-
+  
   lista: Carro[] = [];
   isEditing: boolean = false;
   carroSelecionadaParaEdicao: Carro = new Carro();
